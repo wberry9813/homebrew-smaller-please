@@ -9,8 +9,13 @@ Homepage: <https://github.com/wberry9813/Smaller-Please>
 
 ```bash
 brew tap wberry9813/smaller-please
+brew trust wberry9813/smaller-please
 brew install --cask smaller-please
 ```
+
+Homebrew requires third-party taps to be **trusted explicitly** before their casks can be
+loaded, so `brew trust` is a one-time confirmation for this tap. On older Homebrew versions the
+`brew trust` step is not needed.
 
 `Smaller Please.app` is installed to `/Applications`. It is the **installer**: open it once to
 install Smaller, Please Core, the Media Engine, the Native Host, and the browser extension files,
