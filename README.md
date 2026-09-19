@@ -1,6 +1,6 @@
 # Smaller Please Homebrew Tap
 
-A Homebrew tap for the **Smaller, Please** macOS beta — a local-first tool that makes images
+A Homebrew tap for the **Smaller Please** macOS beta — a local-first tool that makes images
 and videos smaller before they are uploaded to AI apps such as ChatGPT and Claude.
 
 Homepage: <https://github.com/wberry9813/Smaller-Please>
@@ -17,10 +17,10 @@ Homebrew requires third-party taps to be **trusted explicitly** before their cas
 loaded, so `brew trust` is a one-time confirmation for this tap. On older Homebrew versions the
 `brew trust` step is not needed.
 
-`Smaller Please.app` is installed to `/Applications`. It is the **installer**: open it once to
-install Smaller, Please Core, the Media Engine, the Native Host, and the browser extension files,
-then add the extension in Chrome (`chrome://extensions` → **Developer mode** → **Load unpacked**
-→ `~/Applications/Smaller Please Extension`).
+`Smaller Please Installer.app` is installed to `/Applications`. It is the **installer**: open it
+once to install Smaller Please Core, the Media Engine, the Native Host, and the browser extension
+files, then add the extension in Chrome (`chrome://extensions` → **Developer mode** →
+**Load unpacked** → `~/Applications/Smaller Please Extension`).
 
 ## Upgrade
 
@@ -60,13 +60,13 @@ Windows are not supported yet.
 
 This repository contains only the Homebrew cask definition. It ships no binaries, no disk
 images, and no source code; the installer is downloaded from the
-[Smaller, Please releases](https://github.com/wberry9813/Smaller-Please/releases) page.
+[Smaller Please releases](https://github.com/wberry9813/Smaller-Please/releases) page.
 
 ### Publishing a future version
 
 A new version only requires updating three lines in `Casks/smaller-please.rb`:
 
-- `version` — the new release version (for example `0.1.0-beta.3`).
+- `version` — the new release version (for example `0.1.0-beta.4`).
 - `sha256` — the SHA-256 of the new installer DMG.
 - `url` — the new release download URL.
 
