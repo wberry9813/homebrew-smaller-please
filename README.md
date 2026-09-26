@@ -1,73 +1,80 @@
-# Smaller Please Homebrew Tap
+# Smaller, Please — Homebrew Tap
 
-A Homebrew tap for the **Smaller Please** macOS beta — a local-first tool that makes images
-and videos smaller before they are uploaded to AI apps such as ChatGPT and Claude.
+The Homebrew tap for **[Smaller, Please](https://github.com/wberry9813/Smaller-Please)** — a
+local-first tool that makes images and videos smaller *before* they are uploaded to AI apps such
+as ChatGPT and Claude. Processing happens entirely on your Mac; nothing is uploaded to a
+Smaller, Please server.
 
-Homepage: <https://github.com/wberry9813/Smaller-Please>
+This tap ships the **CLI** (`smaller`) as a Homebrew formula — the developer / AI-agent
+installation path. For the graphical installer, use the DMG on the
+[releases page](https://github.com/wberry9813/Smaller-Please/releases).
 
-## Installation
+## Install
 
 ```bash
 brew tap wberry9813/smaller-please
 brew trust wberry9813/smaller-please
-brew install --cask smaller-please
+brew install smaller-please
 ```
 
-Homebrew requires third-party taps to be **trusted explicitly** before their casks can be
+Homebrew 7 requires third-party taps to be **trusted** explicitly before their formulae can be
 loaded, so `brew trust` is a one-time confirmation for this tap. On older Homebrew versions the
 `brew trust` step is not needed.
 
-`Smaller Please Installer.app` is installed to `/Applications`. It is the **installer**: open it
-once to install Smaller Please Core, the Media Engine, the Native Host, and the browser extension
-files, then add the extension in Chrome (`chrome://extensions` → **Developer mode** →
-**Load unpacked** → `~/Applications/Smaller Please Extension`).
+The formula installs the prebuilt CLI directly — it does **not** build from source, run
+`smaller setup`, register the Native Host, touch Chrome, or modify your `$HOME`.
 
-## Upgrade
+## Verify
 
 ```bash
-brew update
-brew upgrade --cask smaller-please
+smaller --version   # smaller 0.1.0
+smaller doctor      # backend / media engine / health report (read-only)
 ```
 
-After an upgrade, re-run the installer and reload the extension in `chrome://extensions`.
+## Finish setup
 
-## Uninstall
+Homebrew does not run setup for you:
 
 ```bash
-brew uninstall --cask smaller-please
+smaller setup
 ```
 
-This removes only the installer app that Homebrew installed. To also remove the program and
-integration files that the installer created, run:
+Then do the one-time Chrome step: open `chrome://extensions`, enable **Developer mode**, click
+**Load unpacked**, and select:
 
-```bash
-smaller uninstall
+```
+~/Applications/Smaller Please Extension
 ```
 
-Your configuration, cached data, and browser-local history are kept by default.
-
-## Beta note
-
-This is an early **beta** release for **macOS Apple Silicon (arm64)** only. Intel Macs and
-Windows are not supported yet.
+Always load the extension from that visible path — never from the Homebrew Cellar.
 
 ## Requirements
 
-- macOS 12 (Monterey) or later on Apple Silicon (arm64).
+- macOS 12 (Monterey) or later.
+- Apple Silicon (**arm64**) only. Intel Macs are not supported yet.
 - Google Chrome for the browser integration.
 
-## About this tap
+## Upgrade / uninstall
 
-This repository contains only the Homebrew cask definition. It ships no binaries, no disk
-images, and no source code; the installer is downloaded from the
-[Smaller Please releases](https://github.com/wberry9813/Smaller-Please/releases) page.
+```bash
+brew update
+brew upgrade smaller-please
+```
 
-### Publishing a future version
+```bash
+brew uninstall smaller-please
+```
 
-A new version only requires updating three lines in `Casks/smaller-please.rb`:
+`brew uninstall` removes only Homebrew-managed files. Your config, cache/store, staged extension,
+Native Host files, and Chrome data are left in place. To also remove the program and integration
+files, run `smaller uninstall`.
 
-- `version` — the new release version (for example `0.1.0-beta.4`).
-- `sha256` — the SHA-256 of the new installer DMG.
-- `url` — the new release download URL.
+## Media engine
 
-No automation is set up yet; the cask is updated by hand.
+FFmpeg is **not** a dependency of this formula. `smaller setup` uses an existing compatible
+FFmpeg (for example a Homebrew one) or the optional LGPL Media Pack; it never downloads a Media
+Pack and never installs Homebrew.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
