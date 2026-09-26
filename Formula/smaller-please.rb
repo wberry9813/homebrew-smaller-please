@@ -17,12 +17,11 @@ class SmallerPlease < Formula
   sha256 "95c3a187afd25f19aa295f9a550bdae16be3fdb269e8f42b526ab8172b04d08d"
   license "MIT"
 
-  on_macos do
-    on_intel do
-      odie "smaller-please ships only an Apple Silicon (arm64) macOS artifact today; " \
-           "the Intel (x86_64) build is Planned. See https://github.com/wberry9813/Smaller-Please/releases."
-    end
-  end
+  # Apple Silicon only: Intel (x86_64) is not supported. `depends_on arch:` refuses an Intel
+  # install at install time; do not use `odie` here, which would raise while Homebrew parses the
+  # formula during `brew tap` and make the whole tap invalid.
+  depends_on macos: :monterey
+  depends_on arch: :arm64
 
   def install
     bin.install "bin/smaller"
