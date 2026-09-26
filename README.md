@@ -13,13 +13,12 @@ installation path. For the graphical installer, use the DMG on the
 
 ```bash
 brew tap wberry9813/smaller-please
-brew trust wberry9813/smaller-please
 brew install smaller-please
 ```
 
-Homebrew 7 requires third-party taps to be **trusted** explicitly before their formulae can be
-loaded, so `brew trust` is a one-time confirmation for this tap. On older Homebrew versions the
-`brew trust` step is not needed.
+`brew trust wberry9813/smaller-please` is **not** required for this formula on current Homebrew
+(it was a requirement for the old cask). If your Homebrew version asks you to trust the tap
+first, run it once and continue.
 
 The formula installs the prebuilt CLI directly — it does **not** build from source, run
 `smaller setup`, register the Native Host, touch Chrome, or modify your `$HOME`.
