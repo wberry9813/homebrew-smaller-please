@@ -20,8 +20,8 @@ class SmallerPlease < Formula
   # Apple Silicon only: Intel (x86_64) is not supported. `depends_on arch:` refuses an Intel
   # install at install time; do not use `odie` here, which would raise while Homebrew parses the
   # formula during `brew tap` and make the whole tap invalid.
-  depends_on macos: :monterey
   depends_on arch: :arm64
+  depends_on macos: :monterey
 
   def install
     bin.install "bin/smaller"
