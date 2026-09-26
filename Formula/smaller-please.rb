@@ -12,15 +12,12 @@
 class SmallerPlease < Formula
   desc "Optimize local media before sending it to AI agents"
   homepage "https://github.com/wberry9813/Smaller-Please"
+  url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0-beta.4/smaller-please-0.1.0-macos-arm64.tar.gz"
   version "0.1.0"
+  sha256 "95c3a187afd25f19aa295f9a550bdae16be3fdb269e8f42b526ab8172b04d08d"
   license "MIT"
 
   on_macos do
-    on_arm do
-      url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0-beta.4/smaller-please-0.1.0-macos-arm64.tar.gz"
-      sha256 "95c3a187afd25f19aa295f9a550bdae16be3fdb269e8f42b526ab8172b04d08d"
-    end
-
     on_intel do
       odie "smaller-please ships only an Apple Silicon (arm64) macOS artifact today; " \
            "the Intel (x86_64) build is Planned. See https://github.com/wberry9813/Smaller-Please/releases."
