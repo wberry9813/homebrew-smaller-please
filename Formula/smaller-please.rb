@@ -28,6 +28,15 @@ class SmallerPlease < Formula
   sha256 "571be9918e13b13f2f64ca39af2bc75bc97173c23ae680f8e1cec954f5572080"
   license "MIT"
 
+  # Homebrew's version comparison ranks the prerelease `0.1.0-beta.5` BELOW the historical
+  # base-version `0.1.0` formula (Beta.4 deliberately used the base version), so without this
+  # stanza `brew upgrade` reports "0.1.0 already installed" and never crosses that boundary.
+  # `version_scheme 1` tells Homebrew that the prior scheme (scheme 0, e.g. the installed Beta.4)
+  # sorts lower, so a prerelease beta upgrades over the historical `0.1.0` install. This is an
+  # independent Homebrew stanza, not a product version: the Formula version itself stays
+  # URL-derived and canonical (the formula still declares no `version` stanza).
+  version_scheme 1
+
   # Apple Silicon only: Intel (x86_64) is not supported. `depends_on arch:` refuses an Intel
   # install at install time; do not use `odie` here, which would raise while Homebrew parses the
   # formula during `brew tap` and make the whole tap invalid.
