@@ -24,8 +24,8 @@
 class SmallerPlease < Formula
   desc "Optimize local media before sending it to AI agents"
   homepage "https://github.com/wberry9813/Smaller-Please"
-  url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0-beta.5/smaller-please-0.1.0-beta.5-macos-arm64.tar.gz"
-  sha256 "571be9918e13b13f2f64ca39af2bc75bc97173c23ae680f8e1cec954f5572080"
+  url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0-beta.6/smaller-please-0.1.0-beta.6-macos-arm64.tar.gz"
+  sha256 "fcd8af808bbee2544ae98cb1c94f53c23f4388a979ff79c0e464e4c248e448d5"
   license "MIT"
 
   # Homebrew's version comparison ranks the prerelease `0.1.0-beta.5` BELOW the historical
@@ -51,15 +51,28 @@ class SmallerPlease < Formula
 
   def caveats
     <<~EOS
-      Finish setup as your user (this formula never runs it for you):
-        1. Run:  smaller setup
-        2. Open chrome://extensions, enable Developer mode, click "Load unpacked", and select:
-             ~/Applications/Smaller Please Extension
+      Smaller, Please installed.
 
-      Always load the extension from that visible path, never from the Homebrew Cellar.
+      CLI:
+        smaller doctor
 
-      Media: `smaller setup` uses an existing FFmpeg, or (on an interactive terminal only) may
-      offer `brew install ffmpeg`. FFmpeg is NOT a dependency of this formula.
+      Browser extension:
+        The Chrome extension is included with this installation.
+
+        Run:
+          smaller setup
+
+        Then show the extension folder:
+          smaller extension path
+
+        In Chrome:
+          1. Open chrome://extensions
+          2. Enable Developer mode
+          3. Click Load unpacked
+          4. Select the folder printed above
+
+      FFmpeg is not a dependency of this formula. `smaller setup` may use an existing FFmpeg,
+      or (on an interactive terminal only) offer `brew install ffmpeg`.
 
       `brew uninstall smaller-please` removes only Homebrew-managed files. Your config,
       cache/store, staged extension, Native Host files, and Chrome data are left in place.
