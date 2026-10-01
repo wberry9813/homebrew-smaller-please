@@ -2,7 +2,7 @@
 
 This repository contains the official Homebrew formula for **Smaller, Please**.
 
-The formula installs the `smaller` CLI and the current extension payload. It requires macOS 12+ on Apple Silicon (arm64); Intel architecture is explicitly refused.
+The formula installs the `smaller` CLI, the current extension payload, and the bundled Agent Skill. It requires macOS 12+ on Apple Silicon (arm64); Intel architecture is explicitly refused.
 
 ## Install
 
@@ -44,6 +44,17 @@ brew uninstall smaller-please
 ```
 
 To fully remove the program and its integration files (including the staged extension and native host), run `smaller uninstall` before removing the formula.
+
+## AI Agent Skills
+
+The Homebrew install includes the Smaller, Please Agent Skill. Get the AI configuration
+instruction with:
+
+```bash
+smaller get skills
+```
+
+Give the output to your AI agent; the agent configures the Skill for its environment.
 
 ## Documentation and Support
 
