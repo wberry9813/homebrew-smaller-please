@@ -24,8 +24,8 @@
 class SmallerPlease < Formula
   desc "Optimize local media before sending it to AI agents"
   homepage "https://github.com/wberry9813/Smaller-Please"
-  url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0-beta.6/smaller-please-0.1.0-beta.6-macos-arm64.tar.gz"
-  sha256 "fcd8af808bbee2544ae98cb1c94f53c23f4388a979ff79c0e464e4c248e448d5"
+  url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0-beta.7/smaller-please-0.1.0-beta.7-macos-arm64.tar.gz"
+  sha256 "2d87123b1f518589c21c94f3b70a18e0f65e8c9071e72315dccd6878ed54df48"
   license "MIT"
 
   # Homebrew's version comparison ranks the prerelease `0.1.0-beta.5` BELOW the historical
@@ -47,6 +47,7 @@ class SmallerPlease < Formula
     bin.install "bin/smaller"
     bin.install "bin/contextslim"
     pkgshare.install "share/smaller-please/extension"
+    pkgshare.install "share/smaller-please/skills"
   end
 
   def caveats
@@ -70,6 +71,14 @@ class SmallerPlease < Formula
           2. Enable Developer mode
           3. Click Load unpacked
           4. Select the folder printed above
+
+      Agent Skill:
+        The Smaller, Please Agent Skill is included with this installation.
+
+        Run:
+          smaller get skills
+
+        Give the output to your AI agent.
 
       FFmpeg is not a dependency of this formula. `smaller setup` may use an existing FFmpeg,
       or (on an interactive terminal only) offer `brew install ffmpeg`.
