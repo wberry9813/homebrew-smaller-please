@@ -24,8 +24,8 @@
 class SmallerPlease < Formula
   desc "Optimize local media before sending it to AI agents"
   homepage "https://github.com/wberry9813/Smaller-Please"
-  url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0/smaller-please-0.1.0-macos-arm64.tar.gz"
-  sha256 "e3dc659e6c7c13d2856d8e3a7699f1ffb8d4335fbe5d7a11770f6f3d4e084b82"
+  url "https://github.com/wberry9813/Smaller-Please/releases/download/v0.1.0-beta.8/smaller-please-0.1.0-beta.8-macos-arm64.tar.gz"
+  sha256 "8fd1554b869747a438a43b510514f883a255b07efc8bc2dce6d234ee92d46eaf"
   license "MIT"
 
   # Homebrew's version comparison ranks the prerelease `0.1.0-beta.5` BELOW the historical
